@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  trains:
+    image: markvaradi94/trains-app:1.0
+    dns: 8.8.8.8
+    build: .
+    environment:
+      - JASYPT_ENCRYPTOR_PASSWORD=Linkinpark1403!
+      - MONGODB_ENCRYPTED_USERNAME=Li+ywplEmbDDaJO8H3GUGF0DPWLsW40nkbVjkqmuctLtradfXyIiaoVvLOGn0ryj
+      - MONGODB_ENCRYPTED_PASSWORD=swCPPWgTzh6tsiK177//QAl+9JeRBJaq8eHewN0ko0E4/pG4GC8TatTTzdlDmrS9+Bs+5x2lteUzm2sfqnOkRA==
+      - SPRING_DATA_MONGODB_URI:mongodb://trains-admin:qTvx9i6Se9MpYiXQ@mongodb:27017/trains?retryWrites=true&w=majority&authSource=admin
+    ports:
+      - "8080:8080"
+    container_name: trains-app
+    depends_on:
+      - trains-mongodb
+  trains-mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=trains-admin
+      - MONGO_INITDB_ROOT_PASSWORD=qTvx9i6Se9MpYiXQ
+    volumes:
+      - /tmp/mongodata:/data/db
+    container_name: trains-mongodb
