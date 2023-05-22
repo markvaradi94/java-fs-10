@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://<DECRYPTED_USER>:<DECRYPTED_PASSWORD>@event-cluster.rfftnn8.mongodb.net/?retryWrites=true&w=majority
+      database: trains-app-db
+
+mongodb:
+  encryptedPassword: swCPPWgTzh6tsiK177//QAl+9JeRBJaq8eHewN0ko0E4/pG4GC8TatTTzdlDmrS9+Bs+5x2lteUzm2sfqnOkRA==
+  encryptedUsername: Li+ywplEmbDDaJO8H3GUGF0DPWLsW40nkbVjkqmuctLtradfXyIiaoVvLOGn0ryj
